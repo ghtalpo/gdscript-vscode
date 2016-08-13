@@ -1,0 +1,36 @@
+{
+    "name": "gdscript",
+    "displayName": "gdscript",
+    "description": "Godot Engine GDScript syntax highlighting for VS Code",
+    "version": "0.0.2",
+    "publisher": "jjkim",
+    "icon": "godot_logo.svg",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "gdscript",
+                "aliases": [
+                    "GDScript (Godot Engine)",
+                    "gdscript"
+                ],
+                "extensions": [
+                    ".gd"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "gdscript",
+                "scopeName": "source.gdscript",
+                "path": "./syntaxes/gdscript.tmLanguage"
+            }
+        ]
+    }
+}
