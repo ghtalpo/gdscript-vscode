@@ -183,7 +183,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(?i:(?:(static)\s+)?(func))\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(</string>
+			<string>^\s*(?i:(?:(static)\s+)?(func))\s+([a-zA-Z_][a-zA-Z_0-9]*)->?([a-zA-Z0-9_]*)\s*\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
