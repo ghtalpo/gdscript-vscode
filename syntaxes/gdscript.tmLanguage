@@ -11,6 +11,10 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>match</key>
+			<string>(#)\s*(.*$)\n?</string>
+			<key>name</key>
+			<string>comment.line.number-sign.gdscript</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -18,11 +22,69 @@
 					<key>name</key>
 					<string>punctuation.definition.comment.number-sign.gdscript</string>
 				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.number-sign.gdscript</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<!-- @annotation identifier {type(s)} description -->
+							<key>match</key>
+							<string>(@[a-z_]+) ([a-zA-Z0-9_]+) \{([^}]+)\}(|\s+.+)</string>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.modifier.static-function.gdscript</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.gdscript</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>storage.type.function.gdscript</string>
+								</dict>
+							</dict>
+						</dict>
+						<dict>
+							<!-- @annotation i{type(s)} description -->
+							<key>match</key>
+							<string>(@[a-z_]+) \{([^}]+)\}(|\s+.+)</string>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.modifier.static-function.gdscript</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>storage.type.function.gdscript</string>
+								</dict>
+							</dict>
+						</dict>
+						<dict>
+							<!-- @annotation description -->
+							<key>match</key>
+							<string>(@[a-z_]+)(|\s+.+)</string>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.modifier.static-function.gdscript</string>
+								</dict>
+							</dict>
+						</dict>
+					</array>
+				</dict>
 			</dict>
-			<key>match</key>
-			<string>(#).*$\n?</string>
-			<key>name</key>
-			<string>comment.line.number-sign.gdscript</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -183,7 +245,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(?i:(?:(static)\s+)?(func))\s+([a-zA-Z_][a-zA-Z_0-9]*)->?([a-zA-Z0-9_]*)\s*\(</string>
+			<string>^\s*(?i:(?:(static)\s+)?(func))\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -231,7 +293,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>\)\s*:</string>
+			<string>\)\s*</string>
 			<key>patterns</key>
 			<array>
 				<dict>
